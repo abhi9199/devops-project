@@ -9,4 +9,4 @@ RUN unzip edukate.zip
 RUN cp -rvf online-education-website-template/* .
 RUN rm -rf online-education-website-template edukate.zip
 CMD ["/usr/sbin/httpd", "-D", "FORGROUND"]
-EXPOSE 80
+EXPOSE 80 22
