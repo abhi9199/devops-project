@@ -1,9 +1,8 @@
 FROM  centos:latest
 MAINTAINER ak80744@gmail.com
-ADD 'http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/centos-gpg-keys-8-3.el8.noarch.rpm'
-RUN sudo rpm -i 'centos-gpg-keys-8-3.el8.noarch.rpm'
-RUN dnf --disablerepo '*' --enablerepo=extras swap centos-linux-repos centos-stream-repos
-RUN sudo dnf distro-sync
+RUN cd /etc/yum.repos.d/
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 RUN yum install -y httpd \
  zip\
  unzip
