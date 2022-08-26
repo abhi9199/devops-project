@@ -1,6 +1,5 @@
 FROM  centos:latest
 MAINTAINER ak80744@gmail.com
-RUN apt-get update -y
 RUN apt-get install -y httpd \
  zip\
  unzip
